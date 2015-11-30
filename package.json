@@ -1,0 +1,18 @@
+{
+  "name": "check-in-process",
+  "main": "./lib/check-in-process",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "check-in-process:toggle"
+  },
+  "repository": "https://github.com/atom/check-in-process",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
