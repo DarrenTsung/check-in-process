@@ -6,7 +6,7 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "check-in-process:toggle"
+    "atom-workspace": "check-in-process:show-crs"
   },
   "repository": "https://github.com/atom/check-in-process",
   "license": "MIT",
@@ -14,5 +14,9 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "atom-space-pen-views": "^2.0.5",
+    "fuzzaldrin": "^2.0",
+    "season": "^5.2.0",
+    "underscore-plus": "^1.6.6"
   }
 }

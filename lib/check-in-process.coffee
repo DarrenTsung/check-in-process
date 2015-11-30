@@ -1,4 +1,3 @@
-CheckInProcessView = require './check-in-process-view'
 {CompositeDisposable} = require 'atom'
 
 module.exports = CheckInProcess =
@@ -9,15 +8,16 @@ module.exports = CheckInProcess =
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'check-in-process:show-crs': => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'check-in-process:show-crs': => @createCodeReviewListView().showCodeReviewList()
 
   deactivate: ->
     @subscriptions.dispose()
+    if @codeReviewListView?
+      @codeReviewListView.destroy()
+      @codeReviewListView = null
 
-  toggle: ->
-    console.log 'CheckInProcess was toggled!'
-
-    if @modalPanel.isVisible()
-      @modalPanel.hide()
-    else
-      @modalPanel.show()
+  createCodeReviewListView: ->
+    unless @codeReviewListView?
+      CodeReviewListView = require './code-review-list-view.coffee'
+      @codeReviewListView = new CodeReviewListView()
+    @codeReviewListView
